@@ -1,0 +1,36 @@
+﻿@* This is utilizing a ViewModel named ViewModel*@
+@model MvcChallenge.Models.ViewModel
+@{
+  ViewBag.Title = "AllData";
+}
+
+
+<h2>All of the data</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">CustomerId</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Item Description</th>
+      <th scope="col">Size</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model.Products)
+    {
+    <tr>
+      <td>@item.Order.Customer.Id</td>
+      <td>@item.Order.Customer.FirstName</td>
+      <td>@item.Order.Customer.LastName</td>
+      <td>@item.Description</td>
+      <td>@item.Size</td>
+      <!--C2 C=currency and 2 is the number of decimal spaces-->
+      <td>@item.Price.ToString("C2")</td>
+    </tr>
+    }
+ 
+  </tbody>
+</table>
